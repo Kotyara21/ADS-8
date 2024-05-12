@@ -1,7 +1,9 @@
 // Copyright 2021 NNTU-CS
 #include "train.h"
 
-Train::Train() : first(nullptr), countOp(0) {}
+Train::Train() : first(nullptr), countOp(0) {
+  countOp++;
+}
 
 void Train::addCage(bool light) {
   if (first == nullptr) {
