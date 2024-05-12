@@ -6,14 +6,6 @@ Train::Train() {
   countOp = 0;
 }
 
-Train::~Train() {
-  while (first != nullptr) {
-    Cage *temp = first->next;
-    delete first;
-    first = temp;
-  }
-}
-
 void Train::addCage(bool light) {
   if (first == nullptr) {
     first = new Cage{light, nullptr, nullptr};
