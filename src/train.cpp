@@ -19,14 +19,19 @@ void Train::addCage(bool light) {
 }
 
 int Train::getLength() {
-  if (first == nullptr)
-    return 0;
-  int length = 0;
+  first->light = true;
+  int length = 1;
   Cage *current = first;
-  do {
-    length++;
-    current = current->next;
-  } while (current != first);
+  while (first->light) {
+    length = 1;
+    current = first->next;
+    while (!current->light) {
+      current = current->next;
+      length++;
+    }
+    current->light = false;
+    countOp += 2 * length;
+  }
   return length;
 }
 
