@@ -23,8 +23,8 @@ int Train::getLength() {
   do {
     length++;
     current = current->next;
-    countOp++;
   } while (current != first);
+  countOp += length;
   return length;
 }
 
